@@ -11,3 +11,8 @@ Because of time limitation the testing should be done manually to see if actuall
 1. ``docker exec  -it {redis-container-id}  /bin/sh``
 2. ``redis-cli``
 3. do the redis queries for verifying: `dbsize`, `get`, etc.
+
+
+### Things to improve
+- Add unit tests for business logic
+- Add Makefile with appropriate lint, test, build, run commands
