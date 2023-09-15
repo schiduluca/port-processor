@@ -1,0 +1,18 @@
+version: '3'
+services:
+  processor_service:
+    build:
+      context: .  # Replace with the actual path to the first Go service's Dockerfile directory
+      dockerfile: Dockerfile
+    environment:
+      - REDIS_HOST=redis:6379
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'   # Limit to 0.5 CPU core
+          memory: '256M'  # Limit to 256MB RAM
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    depends_on: [processor_service]
